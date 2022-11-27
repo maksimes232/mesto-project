@@ -1,0 +1,4 @@
+.popup__fieldset_profile-data{
+  display: flex;
+  flex-direction: column;
+}

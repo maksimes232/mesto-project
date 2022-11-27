@@ -1,0 +1,20 @@
+.popup__field_data {
+  border-bottom: 1px solid #CCC;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  font-style: normal;
+  color: #000;
+  padding-bottom: 13px;
+  margin: 0 0 30px;
+}
+
+.popup__field_data:last-child {
+  margin: 0;
+}
+
+@media screen and (max-width: 760px){
+  .popup__field_data {
+    margin-bottom: 30px;
+  }
+}
