@@ -2,7 +2,7 @@
   border: 0;
   background-color: rgba(255, 255, 255, 0);
   padding: 0;
-  margin-top: 3px;
+  transition: opacity .2s linear;
 }
 
 .card__like-button:hover {

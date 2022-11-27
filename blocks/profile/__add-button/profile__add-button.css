@@ -8,6 +8,7 @@
   height: 50px;
   background-color: rgba(255, 255, 255, 0);
   padding: 0;
+  transition: opacity .2s linear;
 }
 
 .profile__add-button:hover {

@@ -3,6 +3,11 @@
   width: 100%;
   min-width: 267px;
   margin: 0 auto;
+  transition: opacity .2s linear;
+}
+
+.header__logo {
+  opacity: .6;
 }
 
 @media screen and (max-width: 940px) {
