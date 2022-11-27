@@ -1,7 +1,7 @@
 .card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(282px, 1fr);
   background-color: #fff;
-  border-radius: 20px;
-  width: 282px;
+  border-radius: 10px;
+  min-height: 361px;
 }

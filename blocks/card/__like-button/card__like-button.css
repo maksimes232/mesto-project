@@ -1,6 +1,8 @@
 .card__like-button {
-  width: 22px;
-  height: 19px;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0;
+  margin-top: 3px;
 }
 
 .card__like-button:hover {

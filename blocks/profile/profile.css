@@ -1,7 +1,6 @@
 .profile {
-  max-width: 880px;
-  width: 100%;
-  padding: 40px 0 50px;
+  width: 880px;
+  padding: 0 0 51px;
   display: flex;
   flex-wrap: wrap;
   margin: auto;
@@ -10,25 +9,16 @@
   min-width: 700px;
 }
 
-@media screen and (max-width: 940px){
+@media screen and (max-width: 940px) {
   .profile {
     width: 80%;
-    max-width: 702px;
     min-width: 282px;
-    padding-bottom: 42px;
+    padding: 0 0 38px;
   }
 }
 
-@media screen and (max-width: 867px){
+@media screen and (max-width: 870px) {
   .profile {
-    justify-content:center;
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 743px){
-  .profile {
-    width: 282px;
-    padding-bottom: 36px;
+    justify-content: center;
   }
 }

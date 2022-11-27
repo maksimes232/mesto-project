@@ -5,9 +5,9 @@
   flex-wrap: wrap ;
 }
 
-@media screen and (max-width: 867px){
+@media screen and (max-width: 870px){
   .profile__content {
     flex-direction: column;
-    margin-bottom: 36px;
+    margin-bottom: 34px;
   }
 }

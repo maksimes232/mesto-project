@@ -7,12 +7,12 @@
 
 @media screen and (max-width: 940px) {
   .profile__avatar {
-    margin: 0 0 26px;
+    margin: 0 30px 26px 0;
   }
 }
 
-@media screen and (max-width: 743px) {
+@media screen and (max-width: 870px){
   .profile__avatar {
-    width: 127px;
+    margin: 0 0 26px;
   }
 }

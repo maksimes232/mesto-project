@@ -9,10 +9,17 @@
   max-width: 336px;
 }
 
-@media screen and (max-width: 726px){
+@media screen and (max-width: 870px){
   .profile__info {
-    margin-left: 18px;
+    margin-left: 38px;
     gap: 10px;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .profile__info {
     grid-template-columns: 189px 18px;
   }
 }
+
+

@@ -1,17 +1,17 @@
 .elements {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 282px);
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
   gap: 20px 17px;
   margin: auto;
   justify-content: center;
   max-width: 880px;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
 }
 
 @media screen and (max-width: 940px){
   .elements {
     width: 80%;
-    padding-bottom: 32px;
+    padding-bottom: 52px;
   }
 } 
