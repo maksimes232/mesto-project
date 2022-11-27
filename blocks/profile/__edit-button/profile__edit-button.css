@@ -4,6 +4,10 @@
     justify-self: end;
 }
 
+.profile__edit-button:hover {
+  opacity: .6;
+}
+
 @media screen and (max-width: 743px){
   .profile__edit-button {
     margin: auto;
