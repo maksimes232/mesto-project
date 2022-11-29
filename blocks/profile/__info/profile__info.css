@@ -5,7 +5,6 @@
   "profile-title profile-edit-button ."
   "profile-description . .";
   max-width: 336px;
-  row-gap: 7px;
 }
 
 @media screen and (max-width: 870px){
