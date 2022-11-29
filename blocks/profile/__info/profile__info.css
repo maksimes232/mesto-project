@@ -1,12 +1,11 @@
 .profile__info {
   display: grid;
   grid-template-columns: 5fr 1fr;
-  grid-template-rows: repeat(2, 0fr);
   grid-template-areas: 
   "profile-title profile-edit-button ."
   "profile-description . .";
-  flex-grow: 1;
   max-width: 336px;
+  row-gap: 7px;
 }
 
 @media screen and (max-width: 870px){

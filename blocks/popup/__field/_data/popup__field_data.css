@@ -1,5 +1,5 @@
 .popup__field_data {
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid rgba(0,0,0,.2);
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
