@@ -1,5 +1,4 @@
 .popup__container {
-  position: relative;
   width: 358px;
   background-color: #fff;
   border-radius: 10px;
@@ -7,6 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 35px;
+  position: absolute;
 }
 
 @media screen and (max-width: 726px){

@@ -1,0 +1,21 @@
+.popup_opened-fullsize {
+    display: flex;
+    justify-content: center;
+    max-width: 75vw;
+    width: auto;
+    padding: 0;
+    background-color: unset;
+}
+
+@media screen and (max-width: 940px) {
+    .popup_opened-fullsize {
+      padding: 0 0 38px;
+    }
+  }
+  
+  @media screen and (max-width: 870px) {
+    .popup_opened-fullsize {
+      justify-content: center;
+      margin-top: -23px;
+    }
+  }

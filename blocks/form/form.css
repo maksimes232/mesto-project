@@ -1,0 +1,11 @@
+.form {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s .6s, opacity .6s linear;
+}
+
+.form_opened {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .6s linear;  
+}

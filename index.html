@@ -13,7 +13,7 @@
       <a href="#" class="header__logo"><img class="header__logo-image" src="./images/header__logo.svg" alt="Логотип Mesto"></a>
     </header>
 
-    <main>
+    <main class="main">
       <section class="profile">
         <div class="profile__content"><img class="profile__avatar" src="./images/profile__avatar-image.jpg" alt="Аватар профиля">
           <div class="profile__info">
@@ -26,61 +26,31 @@
       </section>
 
       <section class="elements">
-          <div class="card">
-            <img class="card__image" src="./images/card__image-1-6.jpg" alt="Церковь в Карачаевске">
-            <div class="card__description">
-              <h2 class="card__title">Карачаевск</h2>
-              <button type="button" class="card__like-button"><img class="card__like-button-image" src="./images/card__like-button.svg" alt="Поставить лайк"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/card__image-2-4.jpg" alt="Гора Эльбрус">
-            <div class="card__description">
-              <h2 class="card__title">Гора Эльбрус</h2>
-              <button type="button" class="card__like-button"><img class="card__like-button-image" src="./images/card__like-button.svg" alt="Поставить лайк"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/card__image-3-5.jpg" alt="Домбай">
-            <div class="card__description">
-              <h2 class="card__title">Домбай</h2>
-              <button type="button" class="card__like-button"><img class="card__like-button-image" src="./images/card__like-button.svg" alt="Поставить лайк"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/card__image-2-4.jpg" alt="Гора Эльбрус">
-            <div class="card__description">
-              <h2 class="card__title">Гора Эльбрус</h2>
-              <button type="button" class="card__like-button"><img class="card__like-button-image" src="./images/card__like-button.svg" alt="Поставить лайк"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/card__image-3-5.jpg" alt="Домбай">
-            <div class="card__description">
-              <h2 class="card__title">Домбай</h2>
-              <button type="button" class="card__like-button"><img class="card__like-button-image" src="./images/card__like-button.svg" alt="Поставить лайк"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/card__image-1-6.jpg" alt="Церковь в Карачаевске">
-            <div class="card__description">
-              <h2 class="card__title">Карачаево-Черкесия</h2>
-              <button type="button" class="card__like-button"><img class="card__like-button-image" src="./images/card__like-button.svg" alt="Поставить лайк"></button>
-            </div>
-          </div>
       </section>
 
-      <section class="popup popup_openesd">
+      <section id="popup" class="popup popup_closed" hidden="true">
         <div class="popup__container">
           <button type="button" class="popup__close-icon"><img class="popup__close-icon-image"  src="./images/popup__close-icon.svg" alt="Закрыть окно"></button>
-          <form name="form-edit-profile">
+          <form id='form-edit-profile' name="form-edit-profile" class = "popup_closed" hidden="true">
             <h2 class="popup__title">Редактировать профиль</h2>
             <fieldset class="popup__fieldset popup__fieldset_profile-data">
-              <input type="text" class="popup__field popup__field_data" id="profile-name" name="profile-description" placeholder="Жак-Ив Кусто">
-              <input type="text" class="popup__field popup__field_data" id="profile-description" name="profile-description" placeholder="Исследователь океана">
+              <input type="text" class="popup__field popup__field_data" id="profile-name" name="profile-description" placeholder="Ваше имя" value = "" required>
+              <input type="text" class="popup__field popup__field_data" id="profile-description" name="profile-description" placeholder="Ваша профессия" value = "" required>
             </fieldset>
               <input type="submit" class="popup__field popup__field_save-button" value="Сохранить">
           </form>
+          <form id='form-add-card' name="form-add-card" class = "popup_closed" hidden="true">
+            <h2 class="popup__title">Добавить место</h2>
+            <fieldset class="popup__fieldset popup__fieldset_profile-data">
+              <input type="text" class="popup__field popup__field_data" id="card-name" name="card" placeholder="Название" required>
+              <input type="text" class="popup__field popup__field_data" id="card-img-link" name="card" placeholder="Ссылка на картинку" required>
+            </fieldset>
+              <input type="submit" class="popup__field popup__field_save-button" value="Сохранить">
+          </form>
+          <div class="popup_closed popup__fullsize " hidden="true">
+            <img class ="popup__fullsize-img" src="">
+            <h2 class = "popup__fullsize-title"></h2>
+          </div>
         </div>
       </section>
     </main>
@@ -89,4 +59,15 @@
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
   </div>
+  <template id = 'card'>
+    <div class="card">
+      <img class="card__image" src="" alt="Фото места">
+      <div class="card__description">
+        <h2 class="card__title"></h2>
+        <button type="button" class="card__like-button"><img class="card__like-button-image" src="./images/card__like-button.svg" alt="Поставить лайк"></button>
+      </div>
+      <button class='card__delete-button'><img src ="./images/card__delete-btn.svg"></button>
+    </div>
+  </template> 
+  <script src="./vendor/script.js"></script>
 </body>
