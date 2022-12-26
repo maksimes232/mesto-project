@@ -47,7 +47,7 @@
 @import url(../blocks/popup/__field/popup__field.css);
 @import url(../blocks/popup/__field/_data/popup__field_data.css);
 @import url(../blocks/popup/__field/_save-button/popup__field_save-button.css);
-@import url(../blocks/popup/_opened-fullsize/popup_opened-fullsize.css);
+@import url(../blocks/popup/__fullsize-container/popup__fullsize-container.css);
 @import url(../blocks/popup/__fullsize-img/popup__fullsize-img.css);
 @import url(../blocks/popup/__fullsize-title/popup__fullsize-title.css);
 @import url(../blocks/popup/_toggle/popup_toggle.css);

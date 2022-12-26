@@ -28,10 +28,10 @@
       <section class="elements">
       </section>
 
-      <section id="popup" class="popup popup_closed" hidden="true">
+      <section id="popup-edit-profile" class="popup popup_closed" hidden="true">
         <div class="popup__container">
-          <button type="button" class="popup__close-icon"><img class="popup__close-icon-image"  src="./images/popup__close-icon.svg" alt="Закрыть окно"></button>
-          <form id='form-edit-profile' name="form-edit-profile" class = "popup_closed" hidden="true">
+          <button id = "close-btn-a" type="button" class="popup__close-icon"><img class="popup__close-icon-image"  src="./images/popup__close-icon.svg" alt="Закрыть окно"></button>
+          <form id='form-edit-profile' name="form-edit-profile">
             <h2 class="popup__title">Редактировать профиль</h2>
             <fieldset class="popup__fieldset popup__fieldset_profile-data">
               <input type="text" class="popup__field popup__field_data" id="profile-name" name="profile-description" placeholder="Ваше имя" value = "" required>
@@ -39,7 +39,13 @@
             </fieldset>
               <input type="submit" class="popup__field popup__field_save-button" value="Сохранить">
           </form>
-          <form id='form-add-card' name="form-add-card" class = "popup_closed" hidden="true">
+        </div>
+      </section>
+
+      <section id="popup-add-card" class="popup popup_closed" hidden="true">
+        <div class="popup__container">
+          <button type="button" class="popup__close-icon"><img class="popup__close-icon-image"  src="./images/popup__close-icon.svg" alt="Закрыть окно"></button>
+          <form id='form-add-card' name="form-add-card">
             <h2 class="popup__title">Добавить место</h2>
             <fieldset class="popup__fieldset popup__fieldset_profile-data">
               <input type="text" class="popup__field popup__field_data" id="card-name" name="card" placeholder="Название" required>
@@ -47,7 +53,13 @@
             </fieldset>
               <input type="submit" class="popup__field popup__field_save-button" value="Сохранить">
           </form>
-          <div class="popup_closed popup__fullsize " hidden="true">
+        </div>
+      </section>
+
+      <section id="popup-fullsize" class="popup popup_closed" hidden="true">
+        <div class="popup__fullsize-container">
+          <button type="button" class="popup__close-icon"><img class="popup__close-icon-image"  src="./images/popup__close-icon.svg" alt="Закрыть окно"></button>
+          <div>
             <img class ="popup__fullsize-img" src="">
             <h2 class = "popup__fullsize-title"></h2>
           </div>
@@ -68,6 +80,7 @@
       </div>
       <button class='card__delete-button'><img src ="./images/card__delete-btn.svg"></button>
     </div>
-  </template> 
-  <script src="./vendor/script.js"></script>
+  </template>
+  <script src="./src/constants.js"></script>
+  <script src="./src/script.js"></script>
 </body>

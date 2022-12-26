@@ -1,20 +1,21 @@
-.popup_opened-fullsize {
+.popup__fullsize-container {
     display: flex;
     justify-content: center;
     max-width: 75vw;
     width: auto;
     padding: 0;
     background-color: unset;
+    position:relative;
 }
 
 @media screen and (max-width: 940px) {
-    .popup_opened-fullsize {
+    .popup__fullsize-container {
       padding: 0 0 38px;
     }
   }
   
   @media screen and (max-width: 870px) {
-    .popup_opened-fullsize {
+    .popup__fullsize-container {
       justify-content: center;
       margin-top: -23px;
     }
