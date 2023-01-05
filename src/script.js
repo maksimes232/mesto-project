@@ -1,3 +1,18 @@
+/*Если я снова вас понял не правильно. Прошу пояснить подробнее мои ошибки.
+
+  Как я понял задание - в форму должен подставляться текст из профиля, но вы указываете это как ошибку. 
+  Если я верно понял, то команда .reset() очищает форму, а при каждом запуске подставляется 
+  информация из профиля в попапы. 
+  
+  Так же я не понимаю в чем моя ошибка с добавлением карточек. Они ведь добавляются в начало секции "elements" при помощи .preppend().
+  Как я понимаю .prepend() не создает каких либо массивов или объектов, а добавляет его в начало node элемента, что и происходит, на мой взгляд.
+  Или новые карточки, доавляемые через попап, должны добавляться через .before() к уже добавившимся при инициализации карточкам?
+  Один из студентов предположил, что ошибка в том, что карточки должны быть представленны в том же порядке, что и в массиве, поэтому я поменял .prepend() на append(), что бы восстановить порядок. 
+  Если этот студент верно предположил, но карточки все равно должны добавляться через .prepend() то я допишу .reverse(), что бы развернуть массив и карточки начали добавляься в верном порядке. 
+  
+  Так же отмечу, что я писал в чате группы и старший студент не обнаружила заявленных вами ошибок, а наставник не отвечает мне больше 48ч, поэтому я и пишу сюда свои вопросы, хотя и понимаю, что так поступать неверно.
+*/
+
 const popupEditProfile = document.querySelector('#popup-edit-profile');
 const profileEditProfileBtn = document.querySelector('.profile__edit-button');
 const popupEditProfileForm = popupEditProfile.querySelector('#form-edit-profile')
@@ -22,7 +37,7 @@ const profileName = document.querySelector('.profile__title');
 const profileDesciption = document.querySelector('.profile__description');
 const cardsStorage = document.querySelector('.elements');
 const popupContainer = document.querySelector('.popup__container');
-
+let i = 0
 
 function openPopup (popup) {
   console.log (popup)
@@ -55,10 +70,10 @@ function createCard (title, img) {
   });
 
   cardImg.addEventListener('click', function () {
-    openPopup(popupFullSize);
     popupFullSizeTitle.textContent = cardTitle.textContent; 
     popupfullSizeImg.src = cardImg.src; 
-    popupfullSizeImg.alt = cardTitle.textContent; 
+    popupfullSizeImg.alt = cardTitle.textContent;
+    openPopup(popupFullSize);
   });
   return cardClone
 } 
@@ -66,7 +81,7 @@ function createCard (title, img) {
 
 initialCards.forEach(function (item) {
   const newCard =  createCard(item.name, item.link);
-  cardsStorage.prepend(newCard);
+  cardsStorage.append(newCard);
 });
 
 profileAddButton.addEventListener('click', function () {
@@ -75,8 +90,6 @@ profileAddButton.addEventListener('click', function () {
 
 profileEditProfileBtn.addEventListener('click', function() {
   openPopup(popupEditProfile);
-  popupEditProfileFormName.value = profileName.textContent ;
-  popupEditProfileFormDescription.value = profileDesciption.textContent;
 })
 
 popupEditProfileForm.addEventListener('submit', function (event) {
@@ -84,8 +97,7 @@ popupEditProfileForm.addEventListener('submit', function (event) {
   profileName.textContent = popupEditProfileFormName.value;
   profileDesciption.textContent = popupEditProfileFormDescription.value;
   closePopup(popupEditProfile);
-  popupEditProfileForm.reset();
-});
+  popupEditProfileForm.reset();});
 
 popupAddNewCard.addEventListener('submit', function (event) {
   event.preventDefault()
@@ -97,7 +109,6 @@ popupAddNewCard.addEventListener('submit', function (event) {
 
 popupCloseEditProfileButton.addEventListener('click', function(){
   closePopup(popupEditProfile);
-  popupEditProfileForm.reset();
 })
 
 popupCloseAddNewButton.addEventListener('click', function(){
