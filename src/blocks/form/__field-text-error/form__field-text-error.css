@@ -1,0 +1,9 @@
+.form__field-text-error {
+  visibility: hidden;
+  font-size: 12px;
+  margin: 0;
+  font-family: 'Inter';
+  line-height: 14.52px;
+  color: #ff0000;
+  min-height: 12px;
+}
