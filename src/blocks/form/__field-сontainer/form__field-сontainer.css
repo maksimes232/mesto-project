@@ -1,0 +1,4 @@
+.form__field-сontainer {
+  display: flex;
+  flex-direction: column;
+}

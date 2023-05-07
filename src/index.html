@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale= 1">
+  <title>Mesto</title>
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <a href="#" class="header__logo"><img class="header__logo-image" src="<%=require('./images/header__logo.svg')%>"  alt="Логотип Mesto"></a>
+    </header>
+
+    <main class="main">
+      <section class="profile">
+        <div class="profile__content"><img class="profile__avatar" src="<%=require('./images/profile__avatar-image.jpg')%>" alt="Аватар профиля">
+          <div class="profile__info">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__edit-button"><img class="profile__edit-button-image" src="<%=require('./images/profile__edit-button.svg')%>" alt="Редактировать профиль"></button>
+            <p class="profile__description">Исследователь океана</p>
+          </div>
+        </div>
+        <button type="button" class="profile__add-button"><img class="profile__add-button-img" src="<%=require('./images/profile__add-button.svg')%>" alt="Добавить место"></button>
+      </section>
+
+      <section class="elements">
+      </section>
+
+      <section id="popup-edit-profile" class="popup popup_closed" hidden="true">
+        <div class="popup__container">
+          <button type="button" class="popup__close-icon"><img class="popup__close-icon-image"  src="<%=require('./images/popup__close-icon.svg')%>" alt="Закрыть окно"></button>
+          <form id='form-edit-profile' name="form-edit-profile" novalidate>
+            <h2 class="form__title">Редактировать профиль</h2>
+            <fieldset class="form__fieldset form__fieldset_profile-data">
+              <div class="form__field-сontainer">
+                <input type="text" class="form__field form__field_data" id="profile-name" name="profile-description" placeholder="Имя" value = "" minlength="2" maxlength="40" pattern="^[A-Za-zА-ЯЁА-яё]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
+                <span class = "profile-name-error form__field-text-error"></span>
+              </div>
+              <div class="form__field-сontainer">
+                <input type="text" class="form__field form__field_data" id="profile-description" name="profile-description" placeholder="Вид деятельности" value = "" minlength="2" maxlength="200" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" pattern="^[A-Za-zА-ЯЁА-яё0-9]+$" required>
+                <span class = "profile-description-error form__field-text-error"></span>
+              </div>
+            </fieldset>
+            <button type="submit" class="form__field form__button">Сохранить</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="popup-add-card" class="popup popup_closed" hidden="true">
+        <div class="popup__container">
+          <button type="button" class="popup__close-icon"><img class="popup__close-icon-image"  src="<%=require('./images/popup__close-icon.svg')%>" alt="Закрыть окно"></button>
+          <form id='form-add-card' name="form-add-card" novalidate>
+            <h2 class="form__title">Добавить место</h2>
+            <fieldset class="form__fieldset form__fieldset_profile-data">
+              <div class="form__field-сontainer">
+                <input type="text" class="form__field form__field_data" id="card-name" name="card" placeholder="Название" minlength="2" maxlength="30"  pattern="^[A-Za-zА-ЯЁА-яё]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
+                <span class = "card-name-error form__field-text-error"></span>
+              </div>
+              <div class="form__field-сontainer">
+                <input type="url" class="form__field form__field_data" id="card-img-link" name="card" placeholder="Ссылка на картинку" required>
+                <span class = "card-img-link-error form__field-text-error"></span>
+              </div>
+            </fieldset>
+              <button type="submit" class="form__field form__button">Сохранить</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="popup-fullsize" class="popup popup_closed" hidden="true">
+        <div class="popup__fullsize-container">
+          <button type="button" class="popup__close-icon"><img class="popup__close-icon-image"  src="<%=require('./images/popup__close-icon.svg')%>" alt="Закрыть окно"></button>
+          <div>
+            <img class ="popup__fullsize-img" src="">
+            <h2 class = "popup__fullsize-title"></h2>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="footer">
+      <p class="footer__copyright">© 2020 Mesto Russia</p>
+    </footer>
+  </div>
+  <template id = 'card'>
+    <div class="card">
+      <img class="card__image" src="" alt="Фото места">
+      <div class="card__description">
+        <h2 class="card__title"></h2>
+        <button type="button" class="card__like-button"><img class="card__like-button-image" src="<%=require('./images/card__like-button.svg')%>" alt="Поставить лайк"></button>
+      </div>
+      <button class='card__delete-button'><img src ="<%=require('./images/card__delete-btn.svg')%>"></button>
+    </div>
+  </template>
+  <script type = "module" src="./src/index.js"></script>
+</body>
