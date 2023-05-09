@@ -1,58 +1,34 @@
-import {popupEditProfileFormName} from "./modal.js"
-import {popups, forms, closePopup} from "./utils.js"
-import {createCard} from "./card.js"
-import {formAddNewCardTitle, formAddNewCardImg, cardsStorage,  profileName, profileDesciption} from "./modal.js"
-
-const popupEditProfileFormNameError = popupEditProfileFormName.querySelector('#profile-name');
-const popupEditProfileFormDescription = popups[0].querySelector('#profile-description');
-
-function submitEditProfileForm (event) {
-  event.preventDefault()
-  profileName.textContent = popupEditProfileFormName.value;
-  profileDesciption.textContent = popupEditProfileFormDescription.value;
-  closePopup(popups[0]);
-  forms[0].reset();
-}
-
-function submitAddCardForm (event) {
-  event.preventDefault()
-  const newCard =  createCard(formAddNewCardTitle.value, formAddNewCardImg.value);
-  cardsStorage.prepend(newCard);
-  closePopup(popups[1]);
-  forms[1].reset();
-}
-
-function showFieldError (form, field, fieldErrorText) {
+function showFieldError (form, field, fieldErrorText, {fieldError, fieldErrorActive}) {
   const errorElement = form.querySelector(`.${field.id}-error`);
-  field.classList.add('form__field_error');
+  field.classList.add(fieldError);
   errorElement.textContent = fieldErrorText;
-  errorElement.classList.add('form__field-text-error_active');
+  errorElement.classList.add(fieldErrorActive); 
 }
   
-function hideFieldError (form, field) {
+function hideFieldError (form, field, {fieldError, fieldErrorActive}) {
   const errorElement = form.querySelector(`.${field.id}-error`);
-  field.classList.remove('form__field_error');
+  field.classList.remove(fieldError);
   errorElement.textContent = '';
-  errorElement.classList.remove('form__field-text-error_active');
+  errorElement.classList.remove(fieldErrorActive);
 }
 
 function checkInvalidField (fieldList) {
-  return fieldList.some((field) => {
+    return fieldList.some((field) => {
     return !field.validity.valid;
   });
 };
   
-function toggleButtonState (fieldList, button) {
+const toggleButtonState = (fieldList, button, {inactiveButtonClass}) => {
   if(checkInvalidField(fieldList)){
-    button.classList.add('form__button_disabled');
+    button.classList.add(inactiveButtonClass);
     button.setAttribute('disabled', true);
   }else{
-    button.classList.remove('form__button_disabled');
+    button.classList.remove(inactiveButtonClass);
     button.removeAttribute('disabled', true);
   };
 };
 
-function checkValidityField (form, field) {
+function checkValidityField (form, field, {fieldError, fieldErrorActive}) {
   if(field.validity.patternMismatch){
     field.setCustomValidity(field.dataset.errorMessage);
   }else{
@@ -60,31 +36,31 @@ function checkValidityField (form, field) {
   }
   
   if(!field.validity.valid){
-    showFieldError(form, field, field.validationMessage);
+    showFieldError(form, field, field.validationMessage, {fieldError, fieldErrorActive});
   }else{
-    hideFieldError(form, field);
+    hideFieldError(form, field, {fieldError, fieldErrorActive});
   }
 };
   
-function setEventListeners (fieldList){
-  const inputList = Array.from(fieldList.querySelectorAll('.form__field'));
-  const formButton = fieldList.querySelector('.form__button');
-  toggleButtonState(inputList, formButton);
+function setEventListeners (fieldList, {inputSelector, submitButtonSelector, inactiveButtonClass, ...rest}) {
+  const inputList = Array.from(fieldList.querySelectorAll(inputSelector));
+  const formButton = fieldList.querySelector(submitButtonSelector);
   inputList.forEach((field) => {
     field.addEventListener('input', () => {
-    checkValidityField(fieldList, field);
-    toggleButtonState(inputList, formButton);
+    checkValidityField(fieldList, field, {fieldError, fieldErrorActive});
+    toggleButtonState(inputList, formButton, {inactiveButtonClass});
     });
   });
 };
   
-function enableValidation () {
-  forms.forEach((form) => {
+function enableValidation ({formSelector, ...rest}) {
+  const getFormList = Array.from(document.querySelectorAll(formSelector));
+  getFormList.forEach((form) => {  
     form.addEventListener('submit', (evt) =>{
     evt.preventDefault()
     })
-    setEventListeners(form);
+    setEventListeners(form, rest);
   })
 };
 
-export {submitEditProfileForm, submitAddCardForm, enableValidation}
+export {enableValidation}
